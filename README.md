@@ -1,2 +1,2 @@
 # signin-signup
-A Express project about sign in and sign up.
+A Express project about Sign in and Sign up.
