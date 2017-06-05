@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Sign in, Sign up and Authority Management System
+  </title>
+  <link rel='stylesheet' href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+</head>
+
+<body>
+  <div style="text-align:right;">
+    <% if(isLogin) { %>
+      <a href="/admin"><%= userInfo.username %></a> &nbsp;&nbsp;&nbsp; <a href="/signout">注销</a>
+    <% } else { %>
+        <a href="/signin">登陆</a> &nbsp;&nbsp;&nbsp; <a href="/signup">注册</a>
+    <%}%>
+  </div>
+
+  <div>
+    <% if(editInfo.role & 32) { %>
+    <form> 
+      <table>
+          <tr><td>用户ID</td><td><%= editInfo.uid %></td></tr>
+          <tr><td>用户名</td><td><%= editInfo.username %></td></tr>
+          <tr><td>邮箱</td><td><%= editInfo.email %></td></tr>
+          <tr><td>注册时间</td><td><%= editInfo.regtime %></td></tr>
+          <tr><td>禁止时间</td><td><%= editInfo.bantime %></td></tr>
+          <tr><td>权限</td><td><%= editInfo.role %></td></tr>
+          <tr><td>登录失败次数</td><td><%= editInfo.lognum %></td></tr>
+          <tr><td>登录失败时间</td><td><%= editInfo.logtime %></td></tr>   
+      </table>       
+      </form>
+    <% } else { %>
+    <div>
+      <form action = "/<%= editInfo.uid %>" method="post"> 
+      <table>
+          <tr><td>用户ID</td><td><%= editInfo.uid %></td></tr>
+          <tr><td>用户名</td><td><%= editInfo.username %></td></tr>
+          <tr><td>邮箱</td><td><input type="text" name="email" id="email" value="<%= editInfo.email %>"/></td></tr>
+          <tr><td>注册时间</td><td><%= editInfo.regtime %></td></tr>
+          <tr><td>权限</td><td><input type="text" name="role" id="role" value="<%= editInfo.role %>" /></td></tr>
+          <tr><td>邮箱验证</td><td>
+          <% if(editInfo.emailchecktype == 0) {%>
+            邮箱已验证
+          <% } else {%>
+            邮箱未验证
+          <% } %>
+          </td></tr>
+          <tr><td>登录失败次数</td><td><%= editInfo.lognum %></td></tr>
+          <tr><td>登录失败时间</td><td><%= editInfo.logtime %></td></tr>   
+          <tr><td colspan="2"><input type="submit" value="确认修改" /></td></tr>
+      </table>       
+      </form>
+    </div>
+    <hr />
+    <div>
+      <form action = "/users/<%= editInfo.uid %>/password" method="post"> 
+      <table>
+          <tr><td>修改密码</td><td><input type="password" name="newpassword" id="newpassword" /></td></tr>
+          <tr><td>确认密码</td><td><input type="password" name="repassword" id="repassword" /></td></tr>  
+          <%= message %>
+          <tr><td colspan="2"><input type="submit" value="确认修改" /></td></tr>
+      </table>       
+      </form>
+    </div>
+     <hr />
+    <div>
+      <input type="button" value="解除封印" onclick="window.location.href='/users/<%= editInfo.uid %>/deban'" />
+      <input type="button" value="尸鬼封尽" onclick="window.location.href='/users/<%= editInfo.uid %>/enban'" />
+      <input type="button" value="返回主页" onclick="window.location.href='/users/'" />
+    </div>
+      <% } %>
+  </div>
+</body>
+
+</html>

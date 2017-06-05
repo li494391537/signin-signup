@@ -1,0 +1,38 @@
+{
+  "name": "signin-signup-nodejs",
+  "version": "1.0.0",
+  "description": "A node.js project about signin and signup.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/li494391537/signin-signup-nodejs.git"
+  },
+  "keywords": [
+    "node.js"
+  ],
+  "author": "lirui&hanzhichen&zhaoheng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/li494391537/signin-signup-nodejs/issues"
+  },
+  "homepage": "https://github.com/li494391537/signin-signup-nodejs#readme",
+  "dependencies": {
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "ejs": "latest",
+    "express": "latest",
+    "express-session": "~1.15.2",
+    "file-stream-rotator": "~0.1.0",
+    "morgan": "~1.7.0",
+    "mysql": "latest",
+    "nodemailer": "^4.0.1",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "pug": "latest",
+    "serve-favicon": "~2.3.2",
+    "uid-safe": "~2.1.4"
+  }
+}

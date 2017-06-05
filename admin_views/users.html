@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sign in, Sign up and Authority Management System</title>
+  <link rel='stylesheet' href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+</head>
+
+<body>
+
+  <% if(isLogin) { %>
+    <div style="text-align:right;">
+      <a href="/admin">
+        <%= userInfo.username %>
+      </a>
+      &nbsp;&nbsp;&nbsp;
+      <a href="/signout">
+        注销
+      </a>
+      <% if(userinfos.length > 0){ %>
+        <div>
+          <table>
+            <th>用户ID</th>
+            <th>用户名</th>
+            <th>邮箱</th>
+            <th>注册时间</th>
+            <th>权限</th>
+            <th>登录失败次数</th>
+            <th>登录失败时间</th>
+            <th>修改权限点击</th>
+            <% for(var i = 0;i < userinfos.length; i++){ %>
+              <tr>
+                <td>
+                  <%= userinfos[i].uid %>
+                </td>
+                <td>
+                  <%= userinfos[i].username %>
+                </td>
+                <td>
+                  <%= userinfos[i].email %>
+                </td>
+                <td>
+                  <%= userinfos[i].regtime %>
+                </td>
+                <td>
+                  <%= userinfos[i].role %>
+                </td>
+                <td>
+                  <%= userinfos[i].lognum %>
+                </td>
+                <td>
+                  <%= userinfos[i].logtime %>
+                </td>
+                <td><a href="/users/<%= userinfos[i].uid %>">edit</a></td>
+              </tr>
+              <% } %>
+          </table>
+        </div>
+        <% } %>
+    </div>
+    <% } else { %>
+      <div style="text-align:right;">
+        <a href="/signin">登陆</a> &nbsp;&nbsp;&nbsp; <a href="/signup">注册</a>
+      </div>
+      <% } %>
+
+
+</body>
+
+</html>

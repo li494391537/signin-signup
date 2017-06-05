@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Power<%= power %>
+  </title>
+  <link rel='stylesheet' href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+</head>
+
+<body>
+  <div style="text-align:right;">
+      <a href="/user">
+        <%= userInfo.username %>
+      </a>
+      &nbsp;&nbsp;&nbsp;
+      <a href="/signout">
+        注销
+      </a>
+  </div>
+
+  <% if(power == 1) { %>
+  <a href="http://www.baidu.com">baidu</a>
+  <% } else if(power == 2) { %>
+  <a href="http://www.sohu.com">sohu</a>
+  <% } else if(power == 3) { %>
+  <a href="http://www.dilidili.com">di</a>
+  <% } else if(power == 4) { %>
+  <a href="http://www.bilibili.com">bi</a>
+  <% } %>
+
+</body>
+
+</html>
